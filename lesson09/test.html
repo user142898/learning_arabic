@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Изучение арабского языка">
+    <meta name="keywords" content="арабский язык">
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../img/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../img/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="../img/favicon-512x512.png" sizes="512x512" type="image/png">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Урок 1. Алфавит. Теория</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preload" href="NautilusPompilius.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Pehlevi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f8f2;
+      padding: 20px;
+      text-align: center;
+    }
+    .word-button {
+      font-size: 2em;
+      padding: 15px 25px;
+      margin-bottom: 20px;
+      background-color: #d9f99d;
+      border: 2px solid #06281b;
+      border-radius: 10px;
+      color: #06281b;
+      cursor: pointer;
+    }
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 600px;
+      margin: 0 auto 20px;
+    }
+    .option-btn {
+      padding: 10px;
+      font-size: 1.2em;
+      background-color: #e0ffe0;
+      border: 2px solid #4CAF50;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .option-btn:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .result, .next-btn {
+      margin-top: 20px;
+      display: none;
+      font-size: 1.5em;
+    }
+    .next-btn {
+      background-color: #eccf59;
+      color: #06281b;
+      padding: 10px 20px;
+      border: double #06281b;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="../img/header.png" alt="Шапка сайта" class="header-image">
+  </header>
+
+  <div class="frame-container">
+    <div class="frame-content">
+      <main>
+
+        <div style="position: absolute; left: 50px; top: 70px;">
+          <a href="../index.html" style="text-decoration: none;">
+              <button class="nav-button" style="font-size: 1.5em; padding: 10px 20px; background-color: #eccf59; color: #06281b; border:double #06281b; border-radius: 5px; font-family: 'Nautilus Pompilius', sans-serif;">
+                🏡 В начало
+              </button>
+          </a>
+      </div>
+
+      <div style="position: absolute; right: 50px; top: 70px;">
+        <a href="../index.html" style="text-decoration: none;">
+            <button class="nav-button" style="font-size: 1.5em; padding: 10px 20px; background-color: #eccf59; color: #06281b; border:double #06281b; border-radius: 5px; font-family: 'Nautilus Pompilius', sans-serif;">
+              🌿 Дальше
+            </button>
+        </a>
+    </div>
+        
+  <h1>Выберите правильный перевод слова</h1>
+  <button class="word-button"  id="wordBtn" onclick="playAudio()">???</button>
+
+  <div class="options-grid" id="options"></div>
+
+  <div class="result" id="resultText"></div>
+  <button class="next-btn" id="nextBtn" onclick="nextWord()">Далее</button>
+
+  <div id="scoreBoard" style="margin-bottom: 20px; font-size: 1.2em; color: #06281b;">
+    ✅ Правильно: <span id="correctCount">0</span> |
+    ❌ Ошибки: <span id="wrongCount">0</span>
+  </div>
+  
+
+</main>
+
+</div>
+</div>
+
+<footer class="footer">
+<img src="../img/footer.png" alt="Подвал сайта" class="footer-image">
+<div class="footer-content">
+
+  <p>
+    <a href="/privacy.html">Политика конфиденциальности</a> |
+    <a href="/terms.html">Условия использования</a> |
+    <a href="/terms.html">Скачать приложение</a> |
+    <a href="/contact.html">Контакты</a>
+  </p>
+</div>
+  <div class="footer-content2">
+  <p>© 2025 Арабский язык за 9 уроков <br> Все права защищены</p>
+</div>
+
+
+
+</footer>
+
+<script src="test.js"></script>
+
+</body>
+</html>
+

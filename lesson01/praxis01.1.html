@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Изучение арабского языка">
+    <meta name="keywords" content="арабский язык">
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../img/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../img/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="../img/favicon-512x512.png" sizes="512x512" type="image/png">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Урок 1.5. Тест на знание алфавита</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preload" href="NautilusPompilius.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Pehlevi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+</head>
+<body>
+
+    <header>
+      <img src="../img/header.png" alt="Шапка сайта" class="header-image">
+    </header>
+
+    <div class="frame-container">
+      <div class="frame-content">
+        <main>
+
+          <div style="position: absolute; left: 50px; top: 70px;">
+            <a href="../index.html" style="text-decoration: none;">
+                <button class="nav-button" style="font-size: 1.5em; padding: 10px 20px; background-color: #eccf59; color: #06281b; border:double #06281b; border-radius: 5px; font-family: 'Nautilus Pompilius', sans-serif;">
+                  🏡 В начало
+                </button>
+            </a>
+        </div>
+
+        <div style="position: absolute; right: 50px; top: 70px;">
+          <a href="praxis01.2.html" style="text-decoration: none;">
+              <button class="nav-button" style="font-size: 1.5em; padding: 10px 20px; background-color: #eccf59; color: #06281b; border:double #06281b; border-radius: 5px; font-family: 'Nautilus Pompilius', sans-serif;">
+                🌿 Дальше
+              </button>
+          </a>
+      </div>
+
+      <h1>1.5. Тест на знание алфавита</h1>
+
+
+          <div class="content" style="width: 30%; border: none;">
+
+
+    <h2>Прослушайте название буквы и выберите её списка:</h2>
+    <button id="play-audio" lang="ar"
+     style="display: block; margin: 5px auto; font-size: 3em; padding: 5px 5px;">🎧</button>
+    <div id="options" style="
+    margin-top: 2px;
+    font-size: 1.3em;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    justify-items: center;"></div>
+    <div id="result" style="margin-top: 20px; font-size: 1.5em; text-align: center; font-family:'Nautilus Pompilius';"></div>
+    <div id="score" style="margin-top: 20px; font-size: 2em;text-align: center;"></div>
+    <button id="resetScore" style="margin-top: 20px; font-size: 1.5em; text-align: center; font-family:'Nautilus Pompilius';">🔄 Сбросить счётчик</button>
+    <div id="question-box">
+      <div id="options"></div>
+      <div id="next-button-container" style="text-align: center; font-family:'Nautilus Pompilius';"></div>
+    </div>
+    
+</div>
+
+  </main>
+    
+</div>
+</div>
+
+<footer class="footer">
+  <img src="../img/footer.png" alt="Подвал сайта" class="footer-image">
+  <div class="footer-content">
+  
+    <p>
+      <a href="/privacy.html">Политика конфиденциальности</a> |
+      <a href="/terms.html">Условия использования</a> |
+      <a href="/terms.html">Скачать приложение</a> |
+      <a href="/contact.html">Контакты</a>
+    </p>
+  </div>
+    <div class="footer-content2">
+    <p>© 2025 Арабский язык за 9 уроков <br> Все права защищены</p>
+  </div>
+</footer>
+
+
+
+
+
+    <script>
+      let correct;
+      let correctCount = 0;
+      let wrongCount = 0;
+    
+      function updateScore() {
+        document.getElementById("score").textContent = `✅: ${correctCount} | ❌: ${wrongCount}`;
+      }
+    
+      function newQuestion() {
+        const letter = getRandomLetter();
+        correct = letter;
+        const options = getRandomOptions(letter);
+    
+        document.getElementById("options").innerHTML = "";
+        options.forEach(opt => {
+          const btn = document.createElement("button");
+          btn.textContent = opt.letter;
+          btn.setAttribute("lang", "ar");  // Применение стиля к кнопкам
+          btn.onclick = () => checkAnswer(opt);
+          document.getElementById("options").appendChild(btn);
+        });
+    
+        document.getElementById("play-audio").onclick = () => {
+          const audio = new Audio(letter.audio);
+          audio.play();
+        };
+    
+        document.getElementById("result").textContent = "";
+      }
+    
+      function checkAnswer(selected) {
+        if (selected === correct) {
+          document.getElementById("result").textContent = "✅ Верно!";
+          correctCount++;
+        } else {
+          document.getElementById("result").textContent = `❌ Неверно. Правильный ответ: ${correct.letter}`;
+          wrongCount++;
+        }
+        updateScore();
+        setTimeout(newQuestion, 2000); // Переход к следующему вопросу
+      }
+
+      document.getElementById("resetScore").onclick = () => {
+        correctCount = 0;
+        wrongCount = 0;
+        updateScore();
+      };
+
+      newQuestion(); // запуск первого вопроса
+    </script>
+    
+    <script src="praxis01.1.js"></script>
+
+</body>
+</html>
