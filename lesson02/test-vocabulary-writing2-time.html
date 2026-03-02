@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Изучение арабского языка">
+    <meta name="keywords" content="арабский язык">
+    <link rel="icon" href="../img/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../img/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="icon" href="../img/favicon-192x192.png" sizes="192x192" type="image/png">
+    <link rel="icon" href="../img/favicon-512x512.png" sizes="512x512" type="image/png">
+    <meta name="theme-color" content="#4CAF50">
+    <title>Урок 1. Алфавит. Теория</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preload" href="NautilusPompilius.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Pehlevi-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  
+
+
+    <style>
+      body { font-family: sans-serif; padding: 20px; direction: rtl; }
+      .word { font-size: 36px; margin: 20px 0; text-align: center; }
+      .input-arabic {
+        font-size: 28px;
+        text-align: right;
+        direction: rtl;
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        width: 100%;
+      }
+      .input-arabic.correct { border-color: green; color: green; }
+      .input-arabic.incorrect {  color: black; }
+      .audio-btn { font-size: 24px; margin: 10px auto; display: block; }
+      #nextBtn { margin-top: 20px; display: none; font-size: 20px; }
+      #resultText { margin-top: 10px; font-size: 20px; text-align: center; }
+    </style>
+
+</head>
+<body>
+
+  <header>
+    <img src="../img/header.png" alt="Шапка сайта" class="header-image">
+  </header>
+
+  <div class="frame-container">
+    <div class="frame-content">
+      <main>
+
+        <div class="nav-container">
+          <a href="../index.html" class="nav-link">
+              <button class="nav-button">🏡 В начало</button>
+          </a>
+      
+          <a href="praxis01.2.html" class="nav-link">
+              <button class="nav-button">🌿 Дальше</button>
+          </a>
+      </div>
+
+   
+        
+    <h2 style="text-align:center">Напиши арабское слово с огласовками</h2>
+
+    <div class="test">
+
+    <div id="word-arabic" class="word" onclick="playAudio()" style="cursor: pointer;"></div>
+  
+    <input type="text" id="userInput" class="input-arabic" placeholder="Впиши слово здесь..." style="display:block;margin:15px auto;font-size:clamp(1rem, 2.5vw, 1.25rem);padding:8px;text-align:center;" oninput="checkInput()">
+  
+    <div id="resultText"></div>
+    <p id="score" style="text-align: center; font-size: 20px; margin-top: 10px;">
+      Написанных слов: <span id="correctCount">0</span>
+    </p>
+    
+    <button id="nextBtn" onclick="nextWord()">Следующее слово</button>
+  </div>
+</main>
+
+</div>
+</div>
+
+<footer class="footer">
+<img src="../img/footer.png" alt="Подвал сайта" class="footer-image">
+<div class="footer-content">
+
+  <p>
+    <a href="/privacy.html">Политика конфиденциальности</a> |
+    <a href="/terms.html">Условия использования</a> |
+    <a href="/terms.html">Скачать приложение</a> |
+    <a href="/contact.html">Контакты</a>
+  </p>
+</div>
+  <div class="footer-content2">
+  <p>© 2025 Арабский язык за 9 уроков <br> Все права защищены</p>
+</div>
+
+
+
+</footer>
+
+<script src="test-vocabulary-writing2-time.js"></script>
+
+</body>
+</html>
+
